@@ -19,7 +19,7 @@ class AccountRegistrationView(APIView):
         serializer = UserDetailsSerializer(data=request.data)
         if serializer.is_valid():
             user_details = serializer.save()
-            token, _ = Token.objects.get_or_create(user=user_details.user)  # user_details.user
+            token, _ = Token.objects.get_or_create(user=user_details.user) 
             return Response(
                 {
                     "message": "Registration successful.",
