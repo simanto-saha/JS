@@ -1,21 +1,10 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import AuthPage from "./authPage/AuthPage";
+import UserDashboard from "./authPage/UserDashboard";
 
 function App() {
-  const [message, setMessage] = useState("");
-
-  useEffect(() => {
-    fetch("http://127.0.0.1:8000/api/demo/")
-      .then((res) => res.json())
-      .then((data) => setMessage(data.name))
-      .catch((err) => console.log(err));
-  }, []);
-
-  return (
-    <div>
-      <h1>React + Django</h1>
-      <p>{message}</p>
-    </div>
-  );
+  const token = localStorage.getItem("token");
+  return token ? <UserDashboard /> : <AuthPage />;
 }
 
 export default App;
