@@ -93,19 +93,56 @@
 
 // added(5,6)
 
-function voul(latter){
-    let value = ['a','e','i','o','u']
-    let count = 0
-    let lower = latter.toLowerCase()
-    for (let i of value){
-        for (let j of lower){
-            if (i === j){
-                count+=1
-            }
-        }
+// function voul(latter){
+//     let value = ['a','e','i','o','u']
+//     let count = 0
+//     let lower = latter.toLowerCase()
+//     for (let i of value){
+//         for (let j of lower){
+//             if (i === j){
+//                 count+=1
+//             }
+//         }
+//     }
+//     console.log(count)
+// }
+
+// str = prompt('write any kind of string: ')
+// voul(str)
+
+
+const button = document.getElementById("showButton");
+const message = document.getElementById("message");
+const id = document.getElementById("yourid");
+
+// button.addEventListener("click", function() {
+//     const name = "Simanto";
+//     const user_id = 21;
+//     message.innerText = name;
+//     id.innerText = user_id;
+// });
+
+// button.addEventListener("click", function() {
+//     const result = getRandom();
+//     id.innerText = result; 
+// });
+
+// function getRandom() {
+//   return Math.floor(Math.random() * (9999 - 1000 + 1)) + 1000;
+// }
+
+
+button.addEventListener("click", function() {
+    document.body.style.backgroundColor = getRandomColor();
+});
+
+function getRandomColor() {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
     }
-    console.log(count)
+    return color;
 }
 
-str = prompt('write any kind of string: ')
-voul(str)
+
